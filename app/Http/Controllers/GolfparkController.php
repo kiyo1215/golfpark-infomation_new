@@ -9,10 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class GolfparkController extends Controller
 {
-    public function top() 
-    {
-        return view('golfpark.top');
-    }
+    // public function top() 
+    // {
+    //     return view('golfpark.top');
+    // }
     public function list(Request $request)
     {
         $row = $request->row;

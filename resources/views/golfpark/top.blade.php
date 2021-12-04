@@ -9,7 +9,15 @@
   <title>Document</title>
 </head>
 <body>
+
   <div class="main">
+
+@if (Auth::check())
+<p>ログイン中ユーザー: {{$user->name . ' メール' . $user->email . ''}}</p>
+@else
+<p>ログインしていません。（<a href="/login">ログイン</a>｜
+  <a href="/register">登録</a>）</p>
+@endif
   @if (session('login_success'))
    <div>{{ session('login_success')}}</div>
   @endif

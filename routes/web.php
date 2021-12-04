@@ -1,9 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Controller;;
 use App\Http\Controllers\GolfparkController;
 use App\Http\Controllers\LoginController;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,12 +16,23 @@ use App\Http\Controllers\LoginController;
 |
 */
 
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
+
+require __DIR__.'/auth.php';
+
 Route::get('/', [LoginController::class, 'showLogin'])->name('showLogin');
 Route::get('/new_account', [LoginController::class, 'new_account'])->name('new_account');
 Route::post('/accountCreate', [LoginController::class, 'accountCreate'])->name('accountCreate');
+// Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('auth');
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/top', [LoginController::class, 'top'])->name('top');
 
-Route::get('/top', [GolfparkController::class, 'top'])->name('top');
 Route::get('/form', [GolfparkController::class, 'form'])->name('form');
 Route::post('/form', [GolfparkController::class, 'add'])->name('add');
 Route::get('/list', [GolfparkController::class, 'list'])->name('list');
@@ -29,6 +40,5 @@ Route::get('/list/info/{id}', [GolfparkController::class, 'showDetail'])->name('
 Route::post('/list/delete', [GolfparkController::class, 'delete'])->name('delete');
 Route::get('/info/edit/{id}', [GolfparkController::class, 'edit'])->name('edit');
 Route::post('/info/update', [GolfparkController::class, 'update'])->name('update');
-
 
 
