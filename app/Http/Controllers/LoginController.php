@@ -21,27 +21,27 @@ class LoginController extends Controller
     {
         $account = $request->all();
         User::create($account);
+        \Session::flash('addAccount_msg', '登録しました');
         return redirect('/');
     }
     public function login(LoginRequest $request){
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('name', 'email', 'password');
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return ridirect('top')->with('login_success', 'ログインしました');
-            // return redirect('top')->intended('dashboard');
+            return redirect('top')->with('login_success', 'ログインしました');
         }
         return back()->withErrors([
             'login_error' => 'メールアドレスかパスワードが間違っています',
         ]);
     }
-    public function top()
-    {
-        $user = Auth::user();
-        // $items = Author::paginate(4);
-        // $param = ['items' => $items, 'user' =>$user];
-        $param = ['user' =>$user];
-        return view('golfpark.top', $param);
-    }
+    // public function top()
+    // {
+    //     $user = Auth::user();
+    //     $items = Author::paginate(4);
+    //     $param = ['items' => $items, 'user' =>$user];
+    //     $param = ['user' =>$user];
+    //     return view('golfpark.top', $param);
+    // }
     // public function login(LoginRequest $request)
     // {
     // $email = $request->email;

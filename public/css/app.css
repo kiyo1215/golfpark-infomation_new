@@ -7,7 +7,10 @@ body {
   height: 100vh;
   background-color: white;
   margin: 0 auto;
-
+}
+.session {
+  text-align: center;
+  color: red;
 }
 
 h1 {

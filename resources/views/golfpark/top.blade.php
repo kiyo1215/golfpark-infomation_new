@@ -12,16 +12,27 @@
 
   <div class="main">
 
-@if (Auth::check())
-<p>ログイン中ユーザー: {{$user->name . ' メール' . $user->email . ''}}</p>
-@else
-<p>ログインしていません。（<a href="/login">ログイン</a>｜
-  <a href="/register">登録</a>）</p>
-@endif
+
   @if (session('login_success'))
    <div>{{ session('login_success')}}</div>
   @endif
     <h1>Golfpark Infomation<br>for Driver</h1>
+
+     @if (session('add_msg'))
+    <div class="session">
+        {{ session('add_msg') }}
+    </div>
+    @endif
+    @if (session('delete_msg'))
+    <div class="session">
+        {{ session('delete_msg') }}
+    </div>
+    @endif
+    @if (session('update_msg'))
+    <div class="session">
+        {{ session('update_msg') }}
+    </div>
+    @endif
     <ul>
       <li><a href="/list?row=1">あ行</a></li>
       <li><a href="/list?row=2">か行</a></li>

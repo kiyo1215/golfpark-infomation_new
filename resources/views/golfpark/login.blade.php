@@ -17,6 +17,12 @@
     @if (session('login_error'))
       <div>{{ session('login_error') }}</div>
     @endif
+     @if (session('addAccount_msg'))
+    <div class="session">
+        {{ session('addAccount_msg') }}
+    </div>
+    @endif
+      <p><input type="text" name="name" placeholder="名前"></p>
       <p><input type="email" name="email" placeholder="メールアドレス"></p>
       @if ($errors->has('email'))
         <div class="text-danger">

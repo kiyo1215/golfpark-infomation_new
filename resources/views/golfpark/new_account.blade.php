@@ -14,6 +14,7 @@
     <h2>新規登録</h2>
     <form method="post" action="{{ route('accountCreate') }}">
     @csrf
+      <p><input type="text" name="name" placeholder="名前"></p>
       <p><input type="email" name="email" placeholder="メールアドレス"></p>
       @if ($errors->has('email'))
         <div class="text-danger">
