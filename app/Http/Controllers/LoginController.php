@@ -11,7 +11,7 @@ class LoginController extends Controller
 {
     public function showLogin()
     {
-        return view('golfpark.login');
+        return view('auth.login');
     }
     public function new_account()
     {

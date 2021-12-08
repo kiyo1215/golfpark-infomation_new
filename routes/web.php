@@ -26,13 +26,13 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('/', [LoginController::class, 'showLogin'])->name('showLogin');
-Route::get('/new_account', [LoginController::class, 'new_account'])->name('new_account');
-Route::post('/accountCreate', [LoginController::class, 'accountCreate'])->name('accountCreate');
+// Route::get('/', [LoginController::class, 'showLogin'])->name('showLogin');
+// Route::get('/new_account', [LoginController::class, 'new_account'])->name('new_account');
+// Route::post('/accountCreate', [LoginController::class, 'accountCreate'])->name('accountCreate');
 // Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('auth');
-Route::post('/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/top', [GolfparkController::class, 'top'])->name('top');
+Route::get('/', [GolfparkController::class, 'top'])->name('top');
 Route::get('/form', [GolfparkController::class, 'form'])->name('form');
 Route::post('/form', [GolfparkController::class, 'add'])->name('add');
 Route::get('/list', [GolfparkController::class, 'list'])->name('list');
