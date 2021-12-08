@@ -22,7 +22,7 @@
         {{ session('addAccount_msg') }}
     </div>
     @endif
-      <p><input type="text" name="name" placeholder="名前 "></p>
+      <p><input type="text" name="name" placeholder="名前"></p>
       <p><input type="email" name="email" placeholder="メールアドレス"></p>
       @if ($errors->has('email'))
         <div class="text-danger">
